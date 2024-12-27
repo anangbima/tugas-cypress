@@ -1,6 +1,7 @@
 /// <reference types="cypress"/>
 import LoginPage from "../pages/LoginPage";
 
+// Implementasi POM
 describe.only("Login Feature", () => {
     beforeEach(() => {
         LoginPage.visit();

@@ -1,3 +1,4 @@
+// Implementasi POM
 export default class LoginPage {
     static visit() {
         cy.visit(
