@@ -1,5 +1,6 @@
 /// <reference types="cypress"/>
 
+// implementasi intercept
 describe("Login Feature", () => {
     beforeEach(() => {
         cy.visit(
