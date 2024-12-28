@@ -23,3 +23,25 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+import AuthPage from "../e2e/final-quiz/pages/AuthPage";
+
+Cypress.Commands.add("formLogin", (username, password) => {
+    AuthPage.getLoginTitle().should("have.text", "Login");
+    if (username) {
+        AuthPage.getUsernameInput().type(username);
+    }
+    if (password) {
+        AuthPage.getPasswordInput().type(password);
+    }
+    AuthPage.getLoginButton().click();
+});
+
+Cypress.Commands.add("formForgotPassword", (username) => {
+    AuthPage.getForgotPasswordLink().click();
+    AuthPage.verifyRedirectToRequestResetpassword();
+    if (username) {
+        AuthPage.getUsernameInput().type(username);
+    }
+    AuthPage.getResetPasswordButton().click();
+});
